@@ -1,1 +1,5 @@
 "# CocktailAPI" 
+
+Possible categories:
+    - IBA
+    - 
