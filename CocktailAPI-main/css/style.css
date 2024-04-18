@@ -1,0 +1,182 @@
+*
+{
+    margin: 0 auto;
+    color: white;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Roboto, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+main
+{
+    width: 100vw;
+    height: 100vh;
+    background-color: #16181C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+header
+{
+    width: 100%;
+    height: 120px;
+    background-color: #222222;
+    z-index: 2;
+    display: flex;
+}
+#logo
+{
+    box-sizing: border-box;
+    padding: 10px;
+    height: 100%;
+    width: auto;
+}
+.headerSideDiv
+{
+    width: 20%;
+    height: 100%;
+}
+.headerNavDiv
+{
+    width: 60%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+nav > a
+{
+    font-size: 1.5em;
+    margin: 10px;
+    text-decoration: none;
+    font-weight: 450;
+}
+body > main > div
+{
+    width: 100%;
+    height: 0px;
+    position: absolute;
+    top: 80px;
+    z-index: 1;
+}
+#headerTriangleGrey
+{
+    width: 125px;
+}
+#headerTriangleGreen
+{
+    position: relative;
+    float: right;
+    height: 63px;
+    top: 56px;
+}
+main > section
+{
+    width: 70%;
+    height: calc(95% - 120px);
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+}
+main > section > aside
+{
+    width: 25%;
+    height: 100%;
+    margin: 10px;
+    box-sizing: border-box;
+    background-color: #26292F;
+    border-radius: 1.5rem;
+}
+main > section > main
+{
+    width: 70%;
+    height: 100%;
+    margin: 10px;
+    box-sizing: border-box;
+    background-color: #26292F;
+    border-radius: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: auto;
+}
+.searchBar
+{
+    background-color: #16181C;
+    width: 95%;
+    height: 70px;
+    margin: 10px;
+    border-radius: 1.5rem;
+    display: flex;
+}
+.searchBar > div
+{
+    width: 48%;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchBar > div > input
+{
+    background-color: #434956;
+    border: 0px solid;
+    margin: 5px;
+    padding: 5px;
+    height: 30px;
+    width: 100%;
+    border-radius: 0.7rem;
+    font-size: 1.3em;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.searchBar > div > input:focus
+{
+    border: 3px solid #9cbe4d;
+    margin: 2px;
+}
+main > section > main > div
+{
+    width: 95%;
+    height: auto;
+    min-height: 150px;
+    background-color: #16181C;
+    border-radius: 0.9rem;
+    display: flex;
+    align-items: center;
+    margin: 5px 0px 5px 0px;
+
+}
+main > section > main > div > aside
+{
+    height: 130px;
+    width: 130px;
+    margin: 10px;
+}
+main > section > main > div > aside > img
+{
+    width: 100%;
+    height: 100%;
+    border-radius: 0.6rem;
+}
+main > section > main > div > section
+{
+    width: calc(95% - 130px);
+    height: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px;
+}
+main > section > main > div > section > div
+{
+    margin: 1px;
+    font-size: 1.3em;
+}
+main > section > main > div > section > article
+{
+    color: #C4CFDD;
+    height: auto;
+    margin: 1px;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+}
