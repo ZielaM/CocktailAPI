@@ -134,7 +134,15 @@ textarea:focus, input:focus{
     border: 3px solid #9cbe4d;
     margin: 2px;
 }
-main > section > main > div
+#SearchResults
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.res
 {
     width: 95%;
     height: auto;
@@ -146,19 +154,19 @@ main > section > main > div
     margin: 5px 0px 5px 0px;
 
 }
-main > section > main > div > aside
+.res > aside
 {
     height: 130px;
     width: 130px;
     margin: 10px;
 }
-main > section > main > div > aside > img
+.res > aside > img
 {
     width: 100%;
     height: 100%;
     border-radius: 0.6rem;
 }
-main > section > main > div > section
+.res > section
 {
     width: calc(95% - 130px);
     height: 130px;
@@ -167,12 +175,12 @@ main > section > main > div > section
     justify-content: space-between;
     margin: 10px;
 }
-main > section > main > div > section > div
+.res > section > div
 {
     margin: 1px;
     font-size: 1.3em;
 }
-main > section > main > div > section > article
+.res > section > article
 {
     color: #C4CFDD;
     height: auto;

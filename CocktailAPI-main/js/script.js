@@ -2,18 +2,47 @@ async function getSearchData(url)
 {
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    //console.log(data);
     return data;
 }
-search.addEventListener("keypress", function(event) {
+search.addEventListener("keypress", async function(event) {
     if (event.key === "Enter") {
       event.preventDefault();
       let name = search.value;
       let url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=' + name;
-      let data = getSearchData(url);
-      console.log(data);
-      Array.from(data).forEach(element => {
-        console.log(element.idDrink);
+      let data = await getSearchData(url);
+      data = data.drinks;
+      SearchResults.innerHTML = "";
+      data.forEach(e => {
+        const ele = document.createElement('div');
+        ele.classList.add('res');
+        {
+          const help = document.createElement('aside');
+          const img = document.createElement('img');
+          img.src = e['strDrinkThumb'];
+          help.appendChild(img);
+          ele.appendChild(help);
+        }
+        {
+          const help = document.createElement('section');
+          const div = document.createElement('div');
+          div.innerHTML = e['strDrink'];
+          const article = document.createElement('article');
+          const ingList = [];
+          for (let i = 1; i < 16; i++) 
+          {
+            if (e[`strIngredient${i}`])
+            {
+              ingList.push(e[`strIngredient${i}`]);
+            }
+            else break;
+          }
+          article.innerHTML = `Ingredients: ${ingList.join(', ')}`;
+          help.appendChild(div);
+          help.appendChild(article);
+          ele.appendChild(help);
+        }
+        SearchResults.appendChild(ele);
       });
     }
   });
