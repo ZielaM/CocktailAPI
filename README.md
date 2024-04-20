@@ -1,5 +1,2 @@
-"# CocktailAPI" 
-
-Possible categories:
-    - IBA
-    - 
+# CocktailAPI
+A school project including API
