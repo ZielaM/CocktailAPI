@@ -92,10 +92,10 @@ elementsArray.forEach(function(elem) {
     });
 });
 clearFilters.addEventListener("click", function (){
-  console.log("test");
   elementsArray.forEach(element => {
     element.checked = false;
   });
   inputsClicked = 0;
   clearFilters.disabled = true;
+  main();
 });
