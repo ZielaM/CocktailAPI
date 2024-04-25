@@ -2,7 +2,6 @@ async function getSearchData(url)
 {
     const response = await fetch(url);
     const data = await response.json();
-    //console.log(data);
     return data;
 }
 async function main()
@@ -22,6 +21,7 @@ async function main()
   });
   data.forEach(e => {
     const ele = document.createElement('div');
+    ele.addEventListener('click', async () => await getDrinkData(e['idDrink']));
     ele.classList.add('res');
     {
       const help = document.createElement('aside');
@@ -66,11 +66,7 @@ search.addEventListener("keypress", async function(event) {
   }
 });
 const nodes = document.querySelectorAll("input[type=checkbox]");
-for (const i of nodes) {
-  console.log(i);
-  i.addEventListener("change", main);
-
-}
+for (const i of nodes) i.addEventListener("change", main);
 
 
 
@@ -105,3 +101,62 @@ clearFilters.addEventListener("click", function (){
   clearFilters.disabled = true;
   main();
 });
+
+async function getDrinkData(id)
+{
+  let data = await getSearchData(`https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${id}`);
+  data = data.drinks[0];
+  cocktailDetails.innerHTML = "";
+  console.log(data);
+  {
+    const img = document.createElement('img');
+    img.src = data['strDrinkThumb'];
+    img.alt = data['strDrink'];
+    cocktailDetails.appendChild(img);
+  }
+  {
+    const help = document.createElement('div');
+    {
+      const h1 = document.createElement('h1');
+      h1.innerHTML = data['strDrink'];
+      help.appendChild(h1);
+    }
+    {
+      const quitButton = document.createElement('button');
+      quitButton.innerHTML = "X";
+      quitButton.addEventListener('click', () => cocktailDetails.style.display = "none");
+      help.appendChild(quitButton);
+    }
+    {
+      const p = document.createElement('p');
+      p.innerHTML = `Category: ${data['strCategory']}`;
+      help.appendChild(p);
+    }
+    {
+      const p = document.createElement('p');
+      p.innerHTML = `Glass: ${data['strGlass']}`;
+      help.appendChild(p);
+    }
+    {
+      const p = document.createElement('p');
+      const ingList = [];
+      for (let i = 1; i < 16; i++) 
+      {
+        if (data[`strIngredient${i}`])
+        {
+          ingList.push([data[`strIngredient${i}`], data[`strMeasure${i}`]]);
+        }
+        else break;
+      }
+      p.innerHTML = `Ingredients: ${ingList.map(e => `${e[0]}: ${e[1]}`).join(', ')}`;
+      help.appendChild(p);
+    }
+    cocktailDetails.appendChild(help);
+  }
+  {
+    const p = document.createElement('p');
+    p.innerHTML = `Instructions: ${data['strInstructions']}`;
+    cocktailDetails.appendChild(p);
+  }
+  cocktailDetails.style.display = "flex";
+}

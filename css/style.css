@@ -296,3 +296,64 @@ textarea:focus, input:focus{
     margin-bottom: 10px;
     word-wrap: break-word;
 }
+#cocktailDetails
+{
+    display: none;
+    position: absolute;
+    width: 70vw;
+    height: 55vh;
+    top: 15vh;
+    left: 15vw;
+    box-shadow: 0 0 0 1000px #00000095;
+    border-radius: 10px;
+    background-color: #393939;
+    z-index: 3;
+    flex-wrap: wrap;
+    overflow: auto;
+    justify-content: center;
+    align-items: start;
+}
+#cocktailDetails > img
+{
+    width: 20vw;
+    height: 20vw;
+    border-radius: 10px;
+    margin: 20px;
+}
+#cocktailDetails > div
+{
+    width: calc(100% - 25vw);
+    height: 20vw;
+    display: flex;
+    flex-wrap: wrap;
+}
+#cocktailDetails > div > h1
+{
+    width: calc(100% - 80px);
+    height: 60px;
+    margin: 15px 0;
+    font-size: 2.5em;
+    text-align: center;
+}
+#cocktailDetails > div > button
+{
+    width: 40px;
+    height: 40px;
+    margin: 20px;
+    background-color: #ff7171;
+    border-radius: 50%;
+    color: #000;
+    font-size: 1.5em;
+}
+#cocktailDetails > div > p:nth-of-type(1), #cocktailDetails > div > p:nth-of-type(2)
+{
+    width: 45%;
+    margin: 30px 10px;
+    text-align: center;
+}
+#cocktailDetails > p
+{
+    width: calc(100% - 40px);
+    margin: 10px;
+    text-align: center;
+}
