@@ -34,6 +34,11 @@ async function main()
       const help = document.createElement('section');
       const div = document.createElement('div');
       div.innerHTML = e['strDrink'];
+      div.style.fontSize = "20pt"
+      div.style.fontWeight = "bold"
+      const catCon = document.createElement('div');
+      catCon.innerHTML = `Category: ${e['strCategory']}`;
+      catCon.style.fontSize = "14pt"
       const article = document.createElement('article');
       const ingList = [];
       for (let i = 1; i < 16; i++) 
@@ -46,6 +51,7 @@ async function main()
       }
       article.innerHTML = `Ingredients: ${ingList.join(', ')}`;
       help.appendChild(div);
+      help.appendChild(catCon);
       help.appendChild(article);
       ele.appendChild(help);
     }
