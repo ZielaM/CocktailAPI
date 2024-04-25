@@ -68,7 +68,7 @@ search.addEventListener("keypress", async function(event) {
 const nodes = document.querySelectorAll("input[type=checkbox]");
 for (const i of nodes) i.addEventListener("change", main);
 
-
+searchbtn.addEventListener("click", main);
 
 clearFilters.disabled = "true";
 const elementsArray = document.querySelectorAll("div > div > input");
