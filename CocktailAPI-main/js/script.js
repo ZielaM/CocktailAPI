@@ -13,6 +13,14 @@ search.addEventListener("keypress", async function(event) {
       let data = await getSearchData(url);
       data = data.drinks;
       SearchResults.innerHTML = "";
+      const cat = Array.from(document.querySelectorAll("input[type=checkbox]")).filter(i => i.checked).map(i => i.value);
+      if (cat.length > 0)
+      data = data.filter(function(i){
+        if (cat.includes(i.strCategory))
+        {
+          return i;
+        }
+      });
       data.forEach(e => {
         const ele = document.createElement('div');
         ele.classList.add('res');
